@@ -1,0 +1,77 @@
+{
+  "adaptive_clustering": {
+    "output_dir": "data_firms_europe",
+    "quality_thresholds": {
+      "min_cluster_quality": 0.25,
+      "max_noise_ratio": 0.9
+    },
+    "quality_weights": {
+      "silhouette": 0.3,
+      "calinski_harabasz": 0.2,
+      "davies_bouldin": 0.2,
+      "noise_penalty": 0.2,
+      "cluster_balance": 0.1
+    },
+    "hdbscan_params": {
+      "min_cluster_size": 50,
+      "min_samples": 25
+    },
+    "kmeans_params": {
+      "n_clusters": 15
+    }
+  },
+  "nasa_firms": {
+    "data_source": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/",
+    "map_key": "39f8ac8dee9239a915de4e8bb0fe689a",
+    "area_params": {
+      "south": 34.0,
+      "north": 72.0,
+      "west": -25.0,
+      "east": 50.0
+    },
+    "satellite": "VIIRS_SNPP_NRT",
+    "days_back": 10,
+    "confidence_threshold": 50
+  },
+  "processing": {
+    "max_samples": 15000,
+    "batch_size": 100,
+    "sample_limit": null
+  },
+  "visualization": {
+    "figsize": [16, 12],
+    "dpi": 100,
+    "save_formats": ["png", "pdf"]
+  },
+  "embedding": {
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "device": "auto",
+    "batch_size": 64
+  },
+  "clustering": {
+    "method": "adaptive",
+    "adaptive_threshold": 3000,
+    "hdbscan_min_cluster_size": 50,
+    "kmeans_n_clusters": 15
+  },
+  "output": {
+    "timestamp_format": "%Y%m%d%H%M"
+  },
+  "region": "europe",
+  "output_dir": "data_firms_europe",
+  "report": {
+    "title": "Europe Fire Detection Analysis Report",
+    "region_name": "Europe",
+    "description": "Comprehensive fire detection analysis covering the entire European Union, United Kingdom, Nordic countries, and surrounding regions",
+    "focus_country": "Italy",
+    "geographic_highlights": [
+      "British Isles (England, Scotland, Wales, Ireland)",
+      "Nordic countries (Norway, Sweden, Finland, Denmark)",
+      "Central Europe (Germany, Poland, Czech Republic, Austria)",
+      "Mediterranean regions (Italy, France, Spain, Greece, Portugal)",
+      "Eastern Europe (Romania, Bulgaria, Hungary, Croatia)",
+      "Alpine mountain ranges and Pyrenees",
+      "Scandinavian forests and taiga regions"
+    ]
+  }
+}

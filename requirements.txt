@@ -1,0 +1,35 @@
+# Asia-Pacific Fire Detection Analysis System
+# Core dependencies for large-scale fire data clustering and analysis
+
+# Machine Learning & Deep Learning
+torch>=2.0.0
+sentence-transformers>=2.2.0
+scikit-learn>=1.3.0
+faiss-cpu>=1.7.4
+hdbscan>=0.8.33
+umap-learn>=0.5.3
+
+# Data Processing & Analysis
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# HTTP Requests & APIs
+requests>=2.31.0
+
+# Text Processing
+langdetect>=1.0.9
+
+# Development & Utilities
+jupyter>=1.0.0
+ipython>=8.0.0
+tqdm>=4.65.0
+
+# Optional: For better performance
+# nvidia-ml-py3>=7.352.0  # GPU monitoring
+# psutil>=5.9.0           # System monitoring
