@@ -230,8 +230,8 @@ MIT License – See `LICENSE` file for details
 - ✅ Real-time quality evaluation
 
 ### Previous Versions
-- v1.4.1: Basic EU support
-- v1.4.0: South America base system
+- v1.3: Asia-Pacific Fire Analysis 
+- v1.4: South America Fire Analysis
 
 ---
 
