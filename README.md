@@ -4,37 +4,37 @@
 
 ## 🌍 Overview
 
-EU Fire Analysis v1.4.2は、NASA FIRMS（Fire Information for Resource Management System）データを使用してヨーロッパ全域の森林火災を検出・分析する専用システムです。最新のAI技術と地理情報システムを組み合わせて、詳細な火災パターン分析を実現します。
+EU Fire Analysis v1.4.2 is a dedicated system for detecting and analyzing forest fires across Europe using NASA FIRMS (Fire Information for Resource Management System) data. By integrating cutting-edge AI techniques with geospatial analysis, it enables detailed pattern recognition of fire activity.
 
 ## 🎯 Key Features
 
-### 地理的カバレッジ
-- **対象範囲**: ヨーロッパ全域（34°N-72°N, 25°W-50°E）
-- **詳細地域分析**: 12以上の具体的地域区分
-  - 北欧（Nordic）: スカンジナビア、北大西洋
-  - 西欧（Western Europe）: ブリテン島、大陸部、中央西欧
-  - 南欧（Southern Europe）: イベリア半島、地中海西部、バルカン半島
-  - 東欧（Eastern Europe）: 中央、黒海沿岸、ロシア西部
+### Geographic Coverage
+- **Scope**: Entire European region (34°N–72°N, 25°W–50°E)
+- **Regional Breakdown**: Over 12 detailed subregions
+  - Nordic: Scandinavia, North Atlantic
+  - Western Europe: British Isles, Continental West, Central West
+  - Southern Europe: Iberian Peninsula, Western Mediterranean, Balkans
+  - Eastern Europe: Central, Black Sea, Western Russia
 
-### 技術仕様
-- **AI埋め込み**: Sentence Transformers (all-MiniLM-L6-v2)
-- **クラスタリング**: FAISS k-means（大規模データ最適化）
-- **可視化**: t-SNE、地域別ヒートマップ、時系列分析
-- **GPU加速**: CUDA対応（利用可能時）
+### Technical Specifications
+- **AI Embedding**: Sentence Transformers (all-MiniLM-L6-v2)
+- **Clustering**: FAISS k-means (optimized for large-scale data)
+- **Visualization**: t-SNE, regional heatmaps, temporal analysis
+- **GPU Acceleration**: CUDA-enabled (if available)
 
 ## 🚀 Quick Start
 
-### 1. 環境セットアップ
+### 1. Environment Setup
 ```bash
-# 依存関係インストール
+# Install dependencies
 pip install -r requirements.txt
 
-# GPU環境（推奨）
+# Recommended for GPU environments
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### 2. 設定ファイル確認
-`config_europe_firms.json`でパラメータを調整：
+### 2. Configuration File
+Adjust parameters in `config_europe_firms.json`:
 ```json
 {
   "region": "Europe",
@@ -47,155 +47,155 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 }
 ```
 
-### 3. 分析実行
+### 3. Run Analysis
 ```bash
 python europe_firms_pipeline_v2.py
 ```
 
 ## 📊 Analysis Results
 
-### パフォーマンス指標（最新実行結果）
-- **処理時間**: 76.45秒（13,334サンプル）
-- **品質スコア**: 0.648
-- **クラスター数**: 15個
-- **地域カバレッジ**: 全EU域
+### Performance Metrics (Latest Run)
+- **Processing Time**: 76.45 seconds (13,334 samples)
+- **Quality Score**: 0.648
+- **Number of Clusters**: 15
+- **Coverage**: Full EU region
 
-### 生成される分析ファイル
-1. **📊 データファイル**
-   - `nasa_firms_data.csv` - 生データ
-   - `europe_fires_clustered.csv` - クラスタ分析済み
-   - `final_europe_results.json` - 分析結果サマリ
+### Output Files
+1. **📊 Data Files**
+   - `nasa_firms_data.csv` – Raw FIRMS data
+   - `europe_fires_clustered.csv` – Clustered results
+   - `final_europe_results.json` – Summary of analysis
 
-2. **🖼️ 可視化ファイル**
-   - `tsne_plot.png` - クラスタ分布
-   - `cluster_regional_analysis.png` - 詳細地域分析
-   - `cluster_geographic_distribution.png` - 地理的分布
-   - `cluster_intensity_analysis.png` - 火災強度分析
-   - `cluster_temporal_patterns.png` - 時間パターン
+2. **🖼️ Visualization Files**
+   - `tsne_plot.png` – Cluster distribution
+   - `cluster_regional_analysis.png` – Regional breakdown
+   - `cluster_geographic_distribution.png` – Geographic spread
+   - `cluster_intensity_analysis.png` – Fire intensity
+   - `cluster_temporal_patterns.png` – Temporal trends
 
-3. **📝 分析レポート**
-   - `comprehensive_fire_analysis_report.md` - 包括的レポート
+3. **📝 Report**
+   - `comprehensive_fire_analysis_report.md` – Full analytical report
 
 ## 🔧 Core Components
 
 ### `europe_firms_pipeline_v2.py`
-メインパイプライン：データ収集→埋め込み生成→クラスタリング→可視化
+Main pipeline: data collection → embedding → clustering → visualization
 
 ### `cluster_feature_analyzer.py`
-詳細地域分析システム：
-- 12+ ヨーロッパ地域の詳細分類
-- 地理的・時間的・強度パターン分析
-- 多次元可視化生成
+Regional analysis engine:
+- Detailed classification of 12+ European regions
+- Geographic, temporal, and intensity pattern analysis
+- Multidimensional visualizations
 
 ### `scripts/`
-- `data_collector.py` - NASA FIRMS API接続
-- `embedding_generator.py` - AI埋め込み生成
-- `clustering.py` - FAISS k-means実装
-- `visualization.py` - 可視化エンジン
+- `data_collector.py` – NASA FIRMS API integration
+- `embedding_generator.py` – Embedding generation
+- `clustering.py` – FAISS k-means implementation
+- `visualization.py` – Visualization engine
 
 ## 🌟 Advanced Features
 
-### 詳細地域分類システム
-従来の2つの簡易区分から12以上の詳細地域区分に拡張：
+### Detailed Regional Classification
+Expanded from 2 basic zones to 12+ fine-grained regions:
 
-**北欧（Nordic Region）**
-- Nordic (Scandinavia): ノルウェー、スウェーデン、フィンランド
-- Nordic (North Atlantic): アイスランド、フェロー諸島
+**Nordic Region**
+- Nordic (Scandinavia): Norway, Sweden, Finland
+- Nordic (North Atlantic): Iceland, Faroe Islands
 
-**西欧（Western Europe）**
-- British Isles: イギリス・アイルランド
-- Western Europe (Continental): フランス・ベルギー・オランダ
-- Central Western Europe: ドイツ・スイス
+**Western Europe**
+- British Isles: UK, Ireland
+- Western Europe (Continental): France, Belgium, Netherlands
+- Central Western Europe: Germany, Switzerland
 
-**南欧（Southern Europe）**
-- Iberian Peninsula: スペイン・ポルトガル
-- Mediterranean West: イタリア・フランス南部
-- Balkans: バルカン半島
-- Southeast Mediterranean: ギリシャ・南バルカン
+**Southern Europe**
+- Iberian Peninsula: Spain, Portugal
+- Mediterranean West: Southern France, Italy
+- Balkans: Balkan Peninsula
+- Southeast Mediterranean: Greece, Southern Balkans
 
-**東欧（Eastern Europe）**
-- Central Europe: ポーランド・チェコ
-- Eastern Europe (Central): ウクライナ・ベラルーシ
-- Eastern Europe (Russia): ロシア西部
-- Eastern Europe (Black Sea): 黒海沿岸
+**Eastern Europe**
+- Central Europe: Poland, Czech Republic
+- Eastern Europe (Central): Ukraine, Belarus
+- Eastern Europe (Russia): Western Russia
+- Eastern Europe (Black Sea): Black Sea coast
 
-### 適応的クラスタリング
-- データサイズに応じた最適手法自動選択
-- HDBSCAN（小規模）→ FAISS k-means（大規模）
-- リアルタイム品質評価
+### Adaptive Clustering
+- Automatically selects optimal method based on data size
+- HDBSCAN (small-scale) → FAISS k-means (large-scale)
+- Real-time quality evaluation
 
 ## 📈 Use Cases
 
-### 1. 火災監視・早期警戒
-リアルタイムでヨーロッパ全域の火災活動を監視
+### 1. Fire Monitoring & Early Warning
+Real-time surveillance of fire activity across Europe
 
-### 2. 地域別火災パターン分析
-各地域の火災特性（季節性、強度、頻度）を詳細分析
+### 2. Regional Fire Pattern Analysis
+Detailed insights into seasonal trends, intensity, and frequency
 
-### 3. 研究・政策立案支援
-科学的根拠に基づく防災政策・環境保護戦略の策定支援
+### 3. Research & Policy Support
+Supports evidence-based disaster prevention and environmental policy
 
-### 4. 国際協力・情報共有
-EU諸国間での火災情報共有と協調対応
+### 4. International Collaboration
+Facilitates fire data sharing and coordinated response among EU nations
 
 ## 🔧 Configuration Options
 
-### 座標範囲カスタマイズ
-特定地域にフォーカス：
+### Custom Coordinate Range
+Focus on specific regions:
 ```json
 {
   "coordinates": {
-    "south": 50.0, "north": 60.0,  // 北欧のみ
+    "south": 50.0, "north": 60.0,  // Nordic only
     "west": 0.0, "east": 20.0
   }
 }
 ```
 
-### 時間範囲調整
+### Time Range Adjustment
 ```json
 {
-  "days_back": 30,  // 過去30日間のデータ
-  "max_samples": 50000  // サンプル数上限
+  "days_back": 30,  // Last 30 days
+  "max_samples": 50000  // Sample limit
 }
 ```
 
 ## 📊 Sample Results
 
-### 最新分析結果（2025年9月15日実行）
-- **総火災検出数**: 13,334件
-- **高信頼度検出**: 13,334件（≥50%信頼度）
-- **地域分布**: 
-  - 地中海地域: 43.6% (5,816件)
-  - 東欧: 62.8% (8,382件)
-  - 西欧: 15.3% (2,040件)
-  - 北欧: 1.5% (197件)
-- **処理時間**: 76.45秒
-- **品質スコア**: 0.648
+### Latest Analysis (Run on September 15, 2025)
+- **Total Fires Detected**: 13,334
+- **High-Confidence Detections**: 13,334 (≥50% confidence)
+- **Regional Distribution**:
+  - Mediterranean: 43.6% (5,816)
+  - Eastern Europe: 62.8% (8,382)
+  - Western Europe: 15.3% (2,040)
+  - Nordic: 1.5% (197)
+- **Processing Time**: 76.45 seconds
+- **Quality Score**: 0.648
 
-### 地理的特徴
-- **緯度範囲**: 34.0°N - 66.3°N
-- **経度範囲**: -22.3°W - 50.0°E
-- **密度**: 地中海沿岸とバルカン半島で高密度
+### Geographic Characteristics
+- **Latitude Range**: 34.0°N – 66.3°N
+- **Longitude Range**: -22.3°W – 50.0°E
+- **Density**: High concentration along Mediterranean coast and Balkans
 
 ## 🛠️ Technical Requirements
 
-### 最小要件
+### Minimum Requirements
 - Python 3.8+
-- RAM: 8GB以上
-- ストレージ: 10GB以上
+- RAM: 8GB+
+- Storage: 10GB+
 
-### 推奨環境
+### Recommended Environment
 - Python 3.9+
-- RAM: 16GB以上
-- GPU: CUDA対応（NVIDIA GTX 1660以上）
-- ストレージ: SSD 20GB以上
+- RAM: 16GB+
+- GPU: CUDA-enabled (NVIDIA GTX 1660 or higher)
+- Storage: SSD 20GB+
 
-### 依存関係
+### Dependencies
 ```
 torch>=1.9.0
 transformers>=4.20.0
 sentence-transformers>=2.2.0
-faiss-cpu>=1.7.0  # または faiss-gpu
+faiss-cpu>=1.7.0  # or faiss-gpu
 numpy>=1.21.0
 pandas>=1.3.0
 matplotlib>=3.5.0
@@ -205,35 +205,35 @@ scikit-learn>=1.0.0
 
 ## 📄 License
 
-MIT License - 詳細は`LICENSE`ファイルを参照
+MIT License – See `LICENSE` file for details
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repository  
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)  
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)  
+4. Push to the branch (`git push origin feature/AmazingFeature`)  
+5. Open a Pull Request  
 
 ## 📞 Support
 
-- Issues: GitHub Issues
+- Issues: GitHub Issues  
 - https://www.linkedin.com/in/yasunotkt/
 
 ## 🔄 Version History
 
 ### v1.4.2 (Current)
-- ✅ 詳細地域分析システム（12+ 地域区分）
-- ✅ FAISS k-means最適化
-- ✅ GPU加速対応
-- ✅ 包括的可視化システム
-- ✅ リアルタイム品質評価
+- ✅ Detailed regional classification (12+ zones)
+- ✅ FAISS k-means optimization
+- ✅ GPU acceleration support
+- ✅ Comprehensive visualization system
+- ✅ Real-time quality evaluation
 
 ### Previous Versions
-- v1.4.1: 基本EU対応
-- v1.4.0: 南米版ベースシステム
+- v1.4.1: Basic EU support
+- v1.4.0: South America base system
 
 ---
 
-**EU Fire Analysis v1.4.2** - ヨーロッパ専用森林火災分析システム  
+**EU Fire Analysis v1.4.2** – Europe-specific forest fire analysis system  
 Powered by NASA FIRMS Data & Advanced AI Technology
