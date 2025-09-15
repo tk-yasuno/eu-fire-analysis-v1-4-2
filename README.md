@@ -218,8 +218,7 @@ MIT License - 詳細は`LICENSE`ファイルを参照
 ## 📞 Support
 
 - Issues: GitHub Issues
-- Documentation: [Wiki](../../wiki)
-- Email: [サポート連絡先]
+- https://www.linkedin.com/in/yasunotkt/
 
 ## 🔄 Version History
 
